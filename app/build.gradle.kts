@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.attendancemarker"
+    namespace = "com.example.attendancemarker"  // Update this if your package name differs
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.attendancemarker"
+        applicationId = "com.example.attendancemarker"  // Ensure this matches your intended package
         minSdk = 24
         targetSdk = 34
         versionCode = 1
@@ -21,12 +21,18 @@ android {
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
     }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
     }
+
     kotlinOptions {
         jvmTarget = "17"
+    }
+
+    buildFeatures {
+        viewBinding = true  // Enables View Binding for your layouts
     }
 }
 
@@ -40,4 +46,6 @@ dependencies {
     implementation("com.google.zxing:core:3.5.2")
     // Permissions handling
     implementation("com.karumi:dexter:6.2.3")
+    // Optional: QR scanning library (uncomment if you add scanning later)
+    // implementation("com.journeyapps:zxing-android-embedded:4.3.0")
 }
